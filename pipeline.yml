@@ -2,6 +2,7 @@
 groups:
 - name: main
   jobs:
+  - Version-Job  
   - Build-Job
 
 resources:
@@ -18,6 +19,17 @@ resources:
     uri: https://github.com/buggavep/ci.git
 
 jobs:
+- name: Version-Job
+  serial: true
+  public: true
+  plan:
+  - get: angular-app
+    trigger: true  
+  - get: ci 
+  - task: Versioning the App
+    file: ci/concourse/version.yml
+    input_mapping: {code-repo: angular-app, ci: ci}
+
 - name: Build-Job
   serial: true
   public: true
