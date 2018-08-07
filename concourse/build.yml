@@ -1,0 +1,22 @@
+platform: linux
+image_resource:
+ type: docker-image
+ source: 
+   repository: busybox
+   tag: "latest"
+
+inputs: 
+ - name: code-repo
+ - name: ci
+
+run: 
+ path: bash
+ args:
+ - -e
+ - -c
+ - |
+   ls -lrt
+   set -o pipefail
+   chmod +x ci/scripts/build.sh
+   ../ci/scripts/build.sh
+ 

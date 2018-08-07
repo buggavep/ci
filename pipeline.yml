@@ -1,0 +1,33 @@
+
+groups:
+- name: main
+  jobs:
+  - simple-test
+
+resources:
+- name: angular-app
+  type: git
+  source:
+    branch: master
+    uri: https://github.com/buggavep/angular-app.git
+
+jobs:
+- name: simple-test
+  serial: true
+  public: true
+  plan:
+  - get: angular-app
+    trigger: true  
+  - task: hello-world
+    config:
+      platform: linux
+      image_resource:
+          type: docker-image
+          source: {repository: busybox}  
+      run:
+          path: bash
+          args:
+          - -e
+          - -c
+          - |
+            ls -lrt
