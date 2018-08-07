@@ -35,6 +35,7 @@ jobs:
   public: true
   plan:
   - get: angular-app
+    passed: [Version-Job]
     trigger: true  
   - get: ci 
   - task: Build App
