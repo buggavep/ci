@@ -25,6 +25,6 @@ jobs:
   - get: angular-app
     trigger: true  
   - get: ci 
-  - task: hello-world
+  - task: Build App
     file: ci/concourse/build.yml
     input_mapping: {code-repo: angular-app, ci: ci}

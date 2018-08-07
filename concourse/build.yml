@@ -18,5 +18,6 @@ run:
    ls -lrt
    set -o pipefail
    chmod +x ci/scripts/build.sh
+   cd code-repo
    ../ci/scripts/build.sh
  
