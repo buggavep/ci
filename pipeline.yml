@@ -2,7 +2,7 @@
 groups:
 - name: main
   jobs:
-  - simple-test
+  - Build-Job
 
 resources:
 - name: angular-app
@@ -11,23 +11,20 @@ resources:
     branch: master
     uri: https://github.com/buggavep/angular-app.git
 
+- name: ci
+  type: git
+  source:
+    branch: master
+    uri: https://github.com/buggavep/ci.git
+
 jobs:
-- name: simple-test
+- name: Build-Job
   serial: true
   public: true
   plan:
   - get: angular-app
     trigger: true  
+  - get: ci 
   - task: hello-world
-    config:
-      platform: linux
-      image_resource:
-          type: docker-image
-          source: {repository: busybox}  
-      run:
-          path: bash
-          args:
-          - -e
-          - -c
-          - |
-            ls -lrt
+    file: ci/concourse/build.yml
+    input_mapping: {code-repo: angular-app, ci: ci}
