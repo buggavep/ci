@@ -22,7 +22,7 @@ echo "$PACKAGE_VERSION" > ../updated-gist/version-gist
 ls -lrt
 
 cd ../updated-gist
-
+chmod 777 version-gist
 ls -la
 
 git config --global user.email "nobody@nobody.com"
