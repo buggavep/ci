@@ -16,7 +16,7 @@ echo "current package version:${PACKAGE_VERSION}"
 #cd ..
 ls -la
 
-echo $BUILD_ID
+echo $BUILD_NUMBER
 
 if [ "$ENVIRONMENT" == "production" ]; then
    
