@@ -28,6 +28,6 @@ ls -la
 git config --global user.email "nobody@nobody.com"
 git config --global user.name "nobody"
 #git pull
-git add version
+git add .
 git commit -m "Bumped release"
 
