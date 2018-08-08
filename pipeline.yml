@@ -18,6 +18,12 @@ resources:
     branch: master
     uri: https://github.com/buggavep/ci.git
 
+- name: version-gist
+  type: git
+  source:
+    branch: master
+    uri: git@gist.github.com:8138f5263ca1b8952264e4f13fc3a1eb.git
+
 jobs:
 - name: Version-Job
   serial: true
@@ -26,9 +32,14 @@ jobs:
   - get: angular-app
     trigger: true  
   - get: ci 
+  - get: version-gist
   - task: Versioning the App
     file: ci/concourse/version.yml
     input_mapping: {code-repo: angular-app, ci: ci}
+    params: 
+      GIST_NAME: version-gist
+  - put: version-gist
+    params: {reposiroty: updated-gist}
 
 - name: Build-Job
   serial: true
