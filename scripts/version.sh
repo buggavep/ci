@@ -4,7 +4,7 @@ set -e
 
 ls -lrt
 
-rm ../updated-gist/$GIST_NAME
+# rm ../updated-gist/$GIST_NAME
 
 git clone version-gist updated-gist 
 
