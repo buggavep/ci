@@ -4,9 +4,9 @@ set -e
 
 ls -lrt
 
-rm -rf ../updated-gist/version-gist 
-
 git clone ../version-gist ../updated-gist
+
+rm -rf ../updated-gist/version-gist 
 
 PACKAGE_VERSION=$(cat package.json \
 | grep version \
