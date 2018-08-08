@@ -65,7 +65,7 @@ jobs:
     file: ci/concourse/version.yml
     input_mapping: {code-repo: angular-app, ci: ci, version-gist: version-gist}
   - put: version-gist
-    params: {reposiroty: updated-gist}
+    params: {repository: updated-gist}
 
 - name: Build-Job
   serial: true

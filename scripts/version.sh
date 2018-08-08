@@ -16,8 +16,17 @@ echo "current package version:${PACKAGE_VERSION}"
 #cd ..
 ls -la
 
-#echo $(date) > version
-echo "$PACKAGE_VERSION" > ../updated-gist/version-gist
+echo $BUILD_ID
+
+if [ "$ENVIRONMENT" == "production" ]; then
+   
+   echo "$PACKAGE_VERSION" > ../updated-gist/version-gist
+
+else
+
+   echo "$PACKAGE_VERSION" > ../updated-gist/version-gist
+
+fi
 
 ls -lrt
 
