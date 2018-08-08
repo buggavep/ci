@@ -4,7 +4,7 @@ set -e
 
 ls -lrt
 
-git clone angular-app some-files1
+git clone code-repo some-files1
 git clone version-gist updated-gist
 mv some-files1/package.json updated-gist
 cd updated-gist
