@@ -19,12 +19,11 @@ touch version
 chmod 777 version
 ls -la
 #echo $(date) > version
-echo "$PACKAGE_VERSION" > version
+echo "$PACKAGE_VERSION" > ../updated-gist/version
 
 ls -lrt
 
 cd ../updated-gist
-mv ../version ../updated-gist
 
 ls -la
 
