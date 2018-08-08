@@ -13,20 +13,10 @@ PACKAGE_VERSION=$(cat package.json \
 | sed 's/[",]//g' \
 | tr -d '[[:space:]]')
 echo "current package version:${PACKAGE_VERSION}"
-#cd ..
+
 ls -la
 
-echo $BUILD_NUMBER
-
-if [ "$ENVIRONMENT" == "production" ]; then
-   
-   echo "$PACKAGE_VERSION" > ../updated-gist/version-gist
-
-else
-
-   echo "$PACKAGE_VERSION" > ../updated-gist/version-gist
-
-fi
+echo "$PACKAGE_VERSION" > ../updated-gist/version-gist
 
 ls -lrt
 
