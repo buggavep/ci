@@ -4,6 +4,8 @@ set -e
 
 ls -lrt
 
+git clone resource-gist updated-gist
+
 PACKAGE_VERSION=$(cat package.json \
 | grep version \
 | head -1 \
