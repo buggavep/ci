@@ -87,7 +87,7 @@ jobs:
   - get: version-gist
   - task: Versioning the App
     file: ci/concourse/version.yml
-    input_mapping: {code-repo: angular-app, ci: ci}
+    input_mapping: {code-repo: angular-app, ci: ci, version-gist: version-gist}
   - put: version-gist
     params: {reposiroty: updated-gist}
 
