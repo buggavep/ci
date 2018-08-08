@@ -4,12 +4,8 @@ set -e
 
 ls -lrt
 
-git clone code-repo some-files1
-git clone version-gist updated-gist
-mv some-files1/package.json updated-gist
-cd updated-gist
-ls -la
-#npm pack
+git clone version-gist ../updated-gist
+
 PACKAGE_VERSION=$(cat package.json \
 | grep version \
 | head -1 \
@@ -24,6 +20,14 @@ chmod 777 version
 ls -la
 #echo $(date) > version
 echo "$PACKAGE_VERSION" > version
+
+ls -lrt
+
+cd ../updated-gist
+mv ../version ../updated-gist
+
+ls -la
+
 git config --global user.email "nobody@nobody.com"
 git config --global user.name "nobody"
 #git pull
