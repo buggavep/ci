@@ -9,6 +9,9 @@ inputs:
  - name: code-repo
  - name: ci
 
+outputs:
+ - name: dist
+
 run: 
  path: bash
  args:

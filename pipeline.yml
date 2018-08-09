@@ -47,7 +47,11 @@ jobs:
   - get: angular-app
     passed: [Version-Job]
     trigger: true  
+  - get: version-gist
   - get: ci 
   - task: Build App
     file: ci/concourse/build.yml
-    input_mapping: {code-repo: angular-app, ci: ci}
+    input_mapping: {code-repo: angular-app, ci: ci, dist: dist, version-gist: version-gist}
+    params:
+      ARTIFACTORY_USERNAME: {{artifactory-user}}
+      ARTIFACTORY_PASSWORD: {{artifactory-password}}
