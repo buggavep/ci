@@ -23,34 +23,7 @@ resources:
   source:
     branch: master
     uri: git@gist.github.com:8138f5263ca1b8952264e4f13fc3a1eb.git
-    private_key: |
-      -----BEGIN RSA PRIVATE KEY-----
-      MIIEpAIBAAKCAQEArBnHi55Lhb59Rf/+/+VOu6IkdpHW/dialT1AfaOanD++q8L5
-      WvsExvGyTxtfT4DTzZvrDZHbkV05zyDRasP3JmkGsZ83qtQGj7HHTVxk3fsHMglP
-      KbwPkQRiZ8VAYj2hxJVQkhGew/KnUXHFrbt14Q1Vg+Xj62ddS+yAr2S7WT8byk3f
-      MaXmTYmCQiZ1XWodAwsBZgme8JQSz1fFqVS8uGU3iiRxe4QC0hY9VLty7YGlshWS
-      jldXvQDKZFs7yDArBmo5V8+ErnPbJY8jL0QdcesIfjkjo3uWqqUgypZOxiL0gAig
-      asgMjv2lYOVwVd9KNVEM46nKnoFmhzYfX104ZwIDAQABAoIBADSIhf3bawg/VnQY
-      qZkpQPhLjT/YUr0X8k/d66KuXxKU7rn1gTJBb3re6mP1YgmdtImNr5lrzY842t2c
-      EfC6MuY5pv5vMInnwLz6MnEt4+hSqSaf6tc9fa7xnKw6bOXQFGIyhe6gjEsZ9fMJ
-      fKMElv4EmPbzJLiFy9fSMJHZeMrL1X2rFqBQF+jp3OfvdqQy5rry/Tl+egtrkGhL
-      YKRJ3x8WDOVF+5nXE5U2UqUmBmURropNkkYnVjnQrgjLjxesjMFuDdkmB+3SFs9g
-      hfi97S+GhkoJVnnloOaNKVCEDS1vs/njc2Q7xZMZtndGoxNzv6v18EPOBL1BwTIA
-      gXJrc/ECgYEA3Ivj9gWzlug0PEtym+gjjguYtcABq4Wxn0LE8bZoIdzvL1VzSMMw
-      o0x0Jp2k4ypgyGcvYF+mVaGG1kx6jWAvJAZCjyEnKL4RiHDzy4xHS9Vw4+7UUOmN
-      seWslKdSXZxHm9CmIGchF9UR1DxeHYe0qSNztCBkLCrJ4b5SinxAiqkCgYEAx8Q1
-      q6b9yTimSspoeApWru9WPiEDG1UBzkR3YS2+m6NvOXGbOhmwF+UFj2ILePuS9zgW
-      I2SO4xlGyzbWnJPMmyzOL6Slz8PGMavF0sBU+hTsoBfgYetjN6Bbw0H5GPSPRucb
-      /7ezeUOsz6H/+uCb5F8zYHGzlnNTnv7lM3dQJI8CgYEAkyJYoOdI2qJrRtZmzZBf
-      OAKQjKBd/Noil8dpsIAqlHzarU9qq95ccnUtAB4nxM2e59O/DaKCS5qJZCp9kBfd
-      G0F54hcSEuJKvCXu35rkbbklqUrKJnjJ6Sb6rem6z2zVcSQP0Io8z7N8Q4VKnJTO
-      eBCIvmDls3mQWaQpWO5v+JECgYEAqYzXIMGzVT5HpeL1mCzuNbvdrw3F3UThK3jg
-      +hIhXWfx1wedgEqdMyqm9XN52U1tB3cLEy8eN5IUjBYXQP4RAwOcXMOaGCVJ6o6o
-      cJ/dgASSca7SO0nWBDiOqcMs8QlhMgSltvzrz1ipK/GLmhtZNRO4P3tBuchYiPI/
-      BteVpfECgYAYBrfGmYNdNmQ82MRYXOcJA7R23ZKjrb9COAKP4tMOfzPZW6zr5kC3
-      cnostcO0QrvB4l5B5ItlQ2/Es+w61Y89CITPVNJ/DACgAtST5FX4Q306zHwltgi6
-      Juw6fZLPKgutkadmsfCjQKRETl4qkal3hbFgeEQaYkq0TmTxEnp18A==
-      -----END RSA PRIVATE KEY-----
+    private_key: {{github-private-key}}
    
 jobs:
 - name: Version-Job
