@@ -64,8 +64,8 @@ jobs:
     trigger: true  
   - get: version-gist
   - get: ci 
-  - get: artifactory
-    resource: artifactory-snapshot
+  # - get: artifactory
+  #   resource: artifactory-snapshot
   - task: Build App
     file: ci/concourse/build.yml
     input_mapping: {code-repo: angular-app, ci: ci, dist: dist, version-gist: version-gist}
