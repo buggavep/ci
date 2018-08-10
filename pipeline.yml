@@ -34,17 +34,17 @@ resources:
     username: {{artifactory-username}}
     password: {{artifactory-password}}
     skip_ssl_verification: true
-
+    
 resource_types:
-- name: artifactory 
+- name: artifactory
   type: docker-image
   source:
     repository: pivotalservices/artifactory-resource
 
-- name: sonar-runner
-  type: docker-image
-  source:
-    repository: cathive/concourse-sonarqube-resource
+# - name: sonar-runner
+#   type: docker-image
+#   source:
+#     repository: cathive/concourse-sonarqube-resource
 
 jobs:
 - name: Version-Job
@@ -76,7 +76,7 @@ jobs:
     file: ci/concourse/build.yml
     input_mapping: {code-repo: angular-app, ci: ci, dist: dist, version-gist: version-gist}
     # params:
-    #   ARTIFACTORY_USERNAME: {{artifactory-user}}
+    #   ARTIFACTORY_USERNAME: {{artifactory-username}}
     #   ARTIFACTORY_PASSWORD: {{artifactory-password}}
   - put: artifactory-snapshot
     params: 
