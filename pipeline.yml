@@ -28,18 +28,24 @@ resources:
 - name: artifactory-snapshot
   type: artifactory
   source:
-    endpoint: http://10.0.0.101:8081/artifactory
-    repository: "/libs-snapshot-local/Pivotal"
-    regex: "pivotal-(?<version>.*).tar.gz"
-    username: admin
-    password: password
+    endpoint: {{artifactory-endpoint}}
+    repository: {{artifactory-repo}}
+    regex: {{artifactory-regex}}
+    username: {{artifactory-username}}
+    password: {{artifactory-password}}
+    skip_ssl_verification: true
 
 resource_types:
-- name: artifactory
+- name: artifactory 
   type: docker-image
   source:
-    repository: mborges/artifactory-resource
-   
+    repository: pivotalservices/artifactory-resource
+
+- name: sonar-runner
+  type: docker-image
+  source:
+    repository: cathive/concourse-sonarqube-resource
+
 jobs:
 - name: Version-Job
   serial: true
@@ -74,4 +80,4 @@ jobs:
     #   ARTIFACTORY_PASSWORD: {{artifactory-password}}
   - put: artifactory-snapshot
     params: 
-      file: dist/cibuild-*.tar.gz
+      file: dist/cibuild.tar.gz
