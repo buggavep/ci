@@ -3,7 +3,8 @@ groups:
 - name: main
   jobs:
   - Version-Job  
-  - Build-Job
+  - Build-Job 
+  - SonarScan-Job
 
 resources:
 - name: angular-app
@@ -25,6 +26,16 @@ resources:
     uri: git@gist.github.com:8138f5263ca1b8952264e4f13fc3a1eb.git
     private_key: {{github-private-key}}
 
+- name: PCFdeploy
+  type: cf
+  source:
+    api: {{cf-endpoint}}
+    username: {{cf-username}}
+    password: {{cf-password}}
+    organization: {{cf-organization}}
+    space: {{cf-space}}
+    skip_cert_check: true
+
 - name: artifactory-snapshot
   type: artifactory
   source:
@@ -34,17 +45,17 @@ resources:
     username: {{artifactory-username}}
     password: {{artifactory-password}}
     skip_ssl_verification: true
-    
+
 resource_types:
 - name: artifactory
   type: docker-image
   source:
     repository: pivotalservices/artifactory-resource
 
-# - name: sonar-runner
-#   type: docker-image
-#   source:
-#     repository: cathive/concourse-sonarqube-resource
+- name: sonar-runner
+  type: docker-image
+  source:
+    repository: cathive/concourse-sonarqube-resource
 
 jobs:
 - name: Version-Job
@@ -81,3 +92,32 @@ jobs:
   - put: artifactory-snapshot
     params: 
       file: dist/cibuild.tar.gz
+
+- name: SonarScan-Job
+  serial: true
+  public: true
+  plan:
+  - get: angular-app
+    passed: [Build-Job]
+    trigger: true  
+  - get: ci 
+  - task: Sonar Scan Task
+    file: ci/concourse/sonar-scan.yml
+    input_mapping: {code-repo: angular-app, ci: ci, dist: dist, version-gist: version-gist}
+
+- name: PCFDeploy-Job
+  serial: true
+  public: true
+  plan:
+  - get: angular-app
+    passed: [SonarScan-Job]
+    trigger: true  
+  - get: artifactory-snapshot
+  - get: ci 
+  - task: PCF Deploy Task
+    file: ci/concourse/cfdeploy.yml
+    input_mapping: {code-repo: angular-app, ci: ci, artifactory: artifactory-snapshot, dist: dist, version-gist: version-gist}
+  - put: PCFdeploy
+    params:
+      manifest: code-repo/manifest.yml
+      path: code-repo

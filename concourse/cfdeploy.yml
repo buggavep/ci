@@ -1,11 +1,14 @@
 platform: linux
   image_resource:
     type: docker-image
-    source: { repository: node, tag: "6" }
+    source:
+      repository: tutum/curl
+      tag: "latest"
 
 inputs: 
  - name: code-repo
  - name: ci
+ - name: artifactory
 
 outputs:
  - name: dist
@@ -18,7 +21,7 @@ run:
  - |
    ls -lrt
    set -o pipefail
-   chmod +x ci/scripts/build.sh
+   chmod +x ci/scripts/cfdeploy.sh
    cd code-repo
-   ../ci/scripts/build.sh
+   ../ci/scripts/cfdeploy.sh
  
