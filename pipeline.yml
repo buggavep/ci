@@ -5,6 +5,7 @@ groups:
   - Version-Job  
   - Build-Job 
   - SonarScan-Job
+  - PCFDeploy-Job
 
 resources:
 - name: angular-app
