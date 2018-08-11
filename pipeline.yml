@@ -115,6 +115,9 @@ jobs:
     trigger: true  
   # - get: artifactory-snapshot
   - get: ci 
+  - task: Build App
+    file: ci/concourse/build.yml
+    input_mapping: {code-repo: angular-app, ci: ci, dist: dist, version-gist: version-gist}
   - task: PCF Deploy Task
     file: ci/concourse/cfdeploy.yml
     input_mapping: {code-repo: angular-app, ci: ci, dist: dist, version-gist: version-gist}
