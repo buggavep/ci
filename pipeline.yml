@@ -90,9 +90,9 @@ jobs:
     # params:
     #   ARTIFACTORY_USERNAME: {{artifactory-username}}
     #   ARTIFACTORY_PASSWORD: {{artifactory-password}}
-  - put: artifactory-snapshot
-    params: 
-      file: dist/cibuild.tar.gz
+  # - put: artifactory-snapshot
+  #   params: 
+  #     file: dist/cibuild.tar.gz
 
 - name: SonarScan-Job
   serial: true
