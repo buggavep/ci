@@ -3,7 +3,7 @@ groups:
 - name: main
   jobs:
   - Version-Job  
-  - Build-Job 
+  - Build-UnitTest-Job 
   - SonarScan-Job
   - PCFDeploy-Job
 
@@ -73,7 +73,7 @@ jobs:
   - put: version-gist
     params: {repository: updated-gist}
 
-- name: Build-Job
+- name: Build-UnitTest-Job
   serial: true
   public: true
   plan:
@@ -99,7 +99,7 @@ jobs:
   public: true
   plan:
   - get: angular-app
-    passed: [Build-Job]
+    passed: [Build-UnitTest-Job]
     trigger: true  
   - get: ci 
   - task: Sonar Scan Task
@@ -123,5 +123,5 @@ jobs:
     input_mapping: {code-repo: angular-app, ci: ci, dist: dist, version-gist: version-gist}
   - put: PCFdeploy
     params:
-      manifest: code-repo/manifest.yml
-      path: code-repo
+      manifest: angular-app/manifest.yml
+      path: angular-app

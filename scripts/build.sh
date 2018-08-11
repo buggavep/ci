@@ -6,6 +6,12 @@ ls -lrt
 
 npm install
 
+# Runnnig Unit Tests
+
+npm run test
+npm run test:coverage
+npm run test:report
+
 ls -lrt
 
 tar -czvf ../dist/cibuild.tar.gz --exclude='./node_modules' --exclude='./.git' --exclude='./.tmp' .
