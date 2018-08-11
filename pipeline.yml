@@ -37,15 +37,15 @@ resources:
     space: {{cf-space}}
     skip_cert_check: true
 
-- name: artifactory-snapshot
-  type: artifactory
-  source:
-    endpoint: {{artifactory-endpoint}}
-    repository: {{artifactory-repo}}
-    regex: {{artifactory-regex}}
-    username: {{artifactory-username}}
-    password: {{artifactory-password}}
-    skip_ssl_verification: true
+# - name: artifactory-snapshot
+#   type: artifactory
+#   source:
+#     endpoint: {{artifactory-endpoint}}
+#     repository: {{artifactory-repo}}
+#     regex: {{artifactory-regex}}
+#     username: {{artifactory-username}}
+#     password: {{artifactory-password}}
+#     skip_ssl_verification: true
 
 resource_types:
 - name: artifactory
