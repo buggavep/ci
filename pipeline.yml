@@ -113,11 +113,11 @@ jobs:
   - get: angular-app
     passed: [SonarScan-Job]
     trigger: true  
-  - get: artifactory-snapshot
+  # - get: artifactory-snapshot
   - get: ci 
   - task: PCF Deploy Task
     file: ci/concourse/cfdeploy.yml
-    input_mapping: {code-repo: angular-app, ci: ci, artifactory: artifactory-snapshot, dist: dist, version-gist: version-gist}
+    input_mapping: {code-repo: angular-app, ci: ci, dist: dist, version-gist: version-gist}
   - put: PCFdeploy
     params:
       manifest: code-repo/manifest.yml
