@@ -1,14 +1,24 @@
-# ci
 # setup concourse from the following link:
-.....coming soon.......
+          https://concourse-ci.org/download.html
 
-# Downlaod fly from concourse web ui
+# Configure fly
+          macosx : Install <fly executable path> /usr/lcoal/bin/
 
 # Deploy pipeline
+          fly -t <target> set-pipeline -c pipeline.yml -p <pipeline-name> -l <secretes-file>
 
-fly -t <target> set-pipeline -c pipeline.yml -p <pipeline-name> -l <secretes-file>
-  
 # Sample secrets format
 
-......coming soon.......
-  
+github-private-key: |
+ 
+ -----BEGIN RSA PRIVATE KEY-----
+ 
+ -----END RSA PRIVATE KEY-----
+
+cf-endpoint: <>
+cf-organization: <>
+cf-space: <>
+cf-username: <>
+cf-password: <>
+
+
