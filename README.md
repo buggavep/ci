@@ -5,9 +5,15 @@
           macosx : Install <fly executable path> /usr/lcoal/bin/
 
 # Deploy pipeline
-          fly -t <target> set-pipeline -c pipeline.yml -p <pipeline-name> -l <secretes-file>
+          command line:
+          
+          RUN git clone https://github.com/buggavep/ci.git
+          
+          RUN cd ci
 
-# Sample secrets format
+          RUN fly -t <target> set-pipeline -c pipeline.yml -p <pipeline-name> -l <secretes-file>
+
+# Sample secrets-file format
 
 github-private-key: |
  
