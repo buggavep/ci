@@ -15,11 +15,6 @@
 
 # Sample secrets-file format
 
-github-private-key: |
- 
- -----BEGIN RSA PRIVATE KEY-----
- 
- -----END RSA PRIVATE KEY-----
 
 cf-endpoint: $cf-endpoint
 
@@ -32,3 +27,9 @@ cf-username: $cf-username
 cf-password: $cf-password
 
 
+github-token: $github-token
+github-private-key: |
+ 
+ -----BEGIN RSA PRIVATE KEY-----
+ 
+ -----END RSA PRIVATE KEY-----
