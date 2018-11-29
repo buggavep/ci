@@ -21,10 +21,10 @@ github-private-key: |
  
  -----END RSA PRIVATE KEY-----
 
-cf-endpoint: <>
-cf-organization: <>
-cf-space: <>
-cf-username: <>
-cf-password: <>
+cf-endpoint: 
+cf-organization: 
+cf-space: 
+cf-username: 
+cf-password: 
 
 
