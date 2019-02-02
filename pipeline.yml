@@ -38,21 +38,7 @@ resources:
     space: {{cf-space}}
     skip_cert_check: true
 
-# - name: artifactory-snapshot
-#   type: artifactory
-#   source:
-#     endpoint: {{artifactory-endpoint}}
-#     repository: {{artifactory-repo}}
-#     regex: {{artifactory-regex}}
-#     username: {{artifactory-username}}
-#     password: {{artifactory-password}}
-#     skip_ssl_verification: true
-
 resource_types:
-- name: artifactory
-  type: docker-image
-  source:
-    repository: pivotalservices/artifactory-resource
 
 - name: sonar-runner
   type: docker-image
@@ -83,8 +69,6 @@ jobs:
     trigger: true  
   - get: version-gist
   - get: ci 
-  # - get: artifactory
-  #   resource: artifactory-snapshot
   - task: Build App
     file: ci/concourse/build.yml
     input_mapping: {code-repo: angular-app, ci: ci, dist: dist, version-gist: version-gist}

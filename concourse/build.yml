@@ -8,6 +8,7 @@ image_resource:
 inputs: 
  - name: code-repo
  - name: ci
+ - name: version-gist
 
 outputs:
  - name: dist

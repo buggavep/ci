@@ -26,8 +26,8 @@ cd ../updated-gist
 chmod 777 version-gist
 ls -la
 
-git config --global user.email "nobody@nobody.com"
-git config --global user.name "nobody"
+git config --global user.email "concourse@nobody.com"
+git config --global user.name "concourse"
 #git pull
 git add .
 git commit -m "Bumped release"

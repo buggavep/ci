@@ -18,6 +18,12 @@ tar -czvf ../dist/cibuild.tar.gz --exclude='./node_modules' --exclude='./.git' -
 
 ls -lrt ../dist
 
-# curl -uadmin:AP55xy9re8GhbxvFzY1ANhbvKhA -T ../dist/cibuild.tar.gz "http://10.0.0.101:8081/artifactory/example-repo-local/version/"
+# If build succeded push artifacts to nexus artifactory
 
-# curl -u ${ARTIFACTORY_USERNAME}:${ARTIFACTORY_PASSWORD} --upload-file ../dist/* http://10.0.0.101:9001/nexus/content/repositories/version/
+cd ../dist
+
+ls -lrt
+
+cat ../version-gist
+
+curl --upload-file *-${VERSION} -u admin:admin123 -v http://localhost:8081/repository/demo-app/
