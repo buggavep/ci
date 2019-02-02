@@ -6,6 +6,8 @@ ls -lrt
 
 echo "**********build number is"
 echo $BUILD_NAME
+echo $BUILD_PIPELINE_NAME
+echo $BUILD_JOB_NAME
 
 git clone ../version-gist ../updated-gist
 
