@@ -4,11 +4,12 @@ set -e
 
 ls -lrt
 
+echo "**********build number is"
+echo $BUILD_NAME
+
 git clone ../version-gist ../updated-gist
 
 rm -rf ../updated-gist/version-gist 
-
-echo "**********build number is $BUILD_ID"
 
 PACKAGE_VERSION=$(cat package.json \
 | grep version \
