@@ -8,6 +8,8 @@ git clone ../version-gist ../updated-gist
 
 rm -rf ../updated-gist/version-gist 
 
+echo $BUILD_NUMBER
+
 PACKAGE_VERSION=$(cat package.json \
 | grep version \
 | head -1 \
