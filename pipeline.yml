@@ -17,7 +17,7 @@ resources:
 - name: ci
   type: git
   source:
-    branch: master
+    branch: qa
     uri: https://github.com/buggavep/ci.git
     private_key: {{github-private-key}}
 
