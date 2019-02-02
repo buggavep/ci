@@ -1,11 +1,11 @@
 
 groups:
-- name: main
+- name: Basic Concourse
   jobs:
-  - Version-Job  
-  - Build-UnitTest-Job 
-  - SonarScan-Job
-  - PCFDeploy-Job
+  - Version 
+  - Build
+  - SonarScan
+  - PCF-Deploy
 
 resources:
 - name: angular-app
@@ -59,7 +59,7 @@ resource_types:
     repository: cathive/concourse-sonarqube-resource
 
 jobs:
-- name: Version-Job
+- name: Version
   serial: true
   public: true
   plan:
@@ -73,12 +73,12 @@ jobs:
   - put: version-gist
     params: {repository: updated-gist}
 
-- name: Build-UnitTest-Job
+- name: Build
   serial: true
   public: true
   plan:
   - get: angular-app
-    passed: [Version-Job]
+    passed: [Version]
     trigger: true  
   - get: version-gist
   - get: ci 
@@ -94,24 +94,24 @@ jobs:
   #   params: 
   #     file: dist/cibuild.tar.gz
 
-- name: SonarScan-Job
+- name: SonarScan
   serial: true
   public: true
   plan:
   - get: angular-app
-    passed: [Build-UnitTest-Job]
+    passed: [Build]
     trigger: true  
   - get: ci 
   - task: Sonar Scan Task
     file: ci/concourse/sonar-scan.yml
     input_mapping: {code-repo: angular-app, ci: ci, dist: dist, version-gist: version-gist}
 
-- name: PCFDeploy-Job
+- name: PCFDeploy
   serial: true
   public: true
   plan:
   - get: angular-app
-    passed: [SonarScan-Job]
+    passed: [SonarScan]
     trigger: true  
   # - get: artifactory-snapshot
   - get: ci 
