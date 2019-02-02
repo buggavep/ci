@@ -1,11 +1,10 @@
-
 groups:
-- name: Basic Concourse
+- name: main
   jobs:
   - Version 
-  - Build
+  - Build-UnitTest
   - SonarScan
-  - PCF-Deploy
+  - PCFDeploy
 
 resources:
 - name: angular-app
@@ -13,12 +12,14 @@ resources:
   source:
     branch: master
     uri: https://github.com/buggavep/angular-app.git
+    private_key: {{github-private-key}}
 
 - name: ci
   type: git
   source:
     branch: master
     uri: https://github.com/buggavep/ci.git
+    private_key: {{github-private-key}}
 
 - name: version-gist
   type: git
@@ -73,7 +74,7 @@ jobs:
   - put: version-gist
     params: {repository: updated-gist}
 
-- name: Build
+- name: Build-UnitTest
   serial: true
   public: true
   plan:
@@ -87,12 +88,9 @@ jobs:
   - task: Build App
     file: ci/concourse/build.yml
     input_mapping: {code-repo: angular-app, ci: ci, dist: dist, version-gist: version-gist}
-    # params:
-    #   ARTIFACTORY_USERNAME: {{artifactory-username}}
-    #   ARTIFACTORY_PASSWORD: {{artifactory-password}}
-  # - put: artifactory-snapshot
-  #   params: 
-  #     file: dist/cibuild.tar.gz
+    params:
+      ARTIFACTORY_USERNAME: {{artifactory-username}}
+      ARTIFACTORY_PASSWORD: {{artifactory-password}}
 
 - name: SonarScan
   serial: true
