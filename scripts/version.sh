@@ -3,7 +3,7 @@
 set -e
 
 export BRANCH=$(git branch | sed -n 2p)
-echo $BRANCH
+ echo  "current branch is:" $BRANCH
 
 if [ ${BRANCH} != "master" ]; then
 
