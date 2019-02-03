@@ -18,7 +18,7 @@ PACKAGE_VERSION=$(cat package.json \
 if [ ${BRANCH} != "master" ]; then
 
   echo  "current branch is:" $BRANCH
-  PACKAGE_VERSION=echo $("$expr ${PACKAGE_VERSION}" + 1)
+  PACKAGE_VERSION=echo $($expr ${PACKAGE_VERSION} + 1)
   echo $PACKAGE_VERSION
 
 fi
