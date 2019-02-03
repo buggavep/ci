@@ -20,12 +20,14 @@ PACKAGE_VERSION=$(cat package.json \
 if [ ${BRANCH} != "master" ]; then
   echo  "current branch is:" $BRANCH 
   echo  "previous version:" $prev_version_gist
-  #PACKAGE_VERSION=$((${PACKAGE_VERSION}+1))
-  value=$(echo $prev_version_gist | rev | cut -d+ -f1)
+  if [[ $prev_version_gist == *"+"* ]]; then
+    value=$(echo $prev_version_gist | rev | cut -d+ -f1)
+  else
+    value=0  
+  fi 
   value=$(expr $value + 1)
   PACKAGE_VERSION="$PACKAGE_VERSION"+$value
   echo $PACKAGE_VERSION
-
 fi
 
 echo "v$PACKAGE_VERSION" > ../updated-gist/version-gist
