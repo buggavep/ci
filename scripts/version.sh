@@ -6,7 +6,7 @@ export BRANCH=$(git branch | sed -n 2p)
  
 git clone ../version-gist ../updated-gist
 
-cat ../updated-gist/version-gist
+cat ../updated-gist/version-gist > prev_version_gist
 
 rm -rf ../updated-gist/version-gist 
 
@@ -20,7 +20,7 @@ PACKAGE_VERSION=$(cat package.json \
 if [ ${BRANCH} != "master" ]; then
   echo  "current branch is:" $BRANCH
   #PACKAGE_VERSION=$((${PACKAGE_VERSION}+1))
-  value=$(echo $PACKAGE_VERSION | rev | cut -d+ -f1)
+  value=$(echo $prev_version_gist | rev | cut -d+ -f1)
   echo $value
   PACKAGE_VERSION="v$PACKAGE_VERSION"+1
   echo $PACKAGE_VERSION
