@@ -5,7 +5,7 @@ set -e
 # BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 git branch
 
-BRANCH=$(echo $(git branch) )
+BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 # | awk '{print $2}')
 echo $BRANCH
 
