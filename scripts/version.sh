@@ -2,14 +2,10 @@
 
 set -e
 
+echo $BUILD_ID
+
 export BRANCH=$(git branch | sed -n 2p)
-
-if [ ${BRANCH} = "master" ]; then
-
- echo  "current branch is:" $BRANCH
-
-fi
-
+ 
 git clone ../version-gist ../updated-gist
 
 rm -rf ../updated-gist/version-gist 
@@ -20,7 +16,13 @@ PACKAGE_VERSION=$(cat package.json \
 | awk -F: '{ print $2 }' \
 | sed 's/[",]//g' \
 | tr -d '[[:space:]]')
-echo "current package version:${PACKAGE_VERSION}"
+
+if [ ${BRANCH} != "master" ]; then
+
+ echo  "current branch is:" $BRANCH
+ PACKAGE_VERSION=${PACKAGE_VERSION} + 1
+
+fi
 
 echo "$PACKAGE_VERSION" > ../updated-gist/version-gist
 
