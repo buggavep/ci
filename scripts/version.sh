@@ -10,7 +10,7 @@ BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 
 echo $BRANCH
 
-if [ $BRANCH != "qa" ]; then
+if [ ${BRANCH} != "master" ]; then
 
     echo $BRANCH
 
