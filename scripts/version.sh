@@ -21,6 +21,7 @@ if [ ${BRANCH} != "master" ]; then
   #PACKAGE_VERSION=$((${PACKAGE_VERSION}+1))
   value=$(echo $PACKAGE_VERSION | sed "s/.*://")
   echo $value
+  echo $PACKAGE_VERSION 
   PACKAGE_VERSION="v$PACKAGE_VERSION"+1
   echo $PACKAGE_VERSION
 
