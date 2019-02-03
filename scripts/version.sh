@@ -44,6 +44,7 @@ if [ $(git tag -l "v$PACKAGE_VERSION") ]; then
     echo yes
 else
     echo no
+    git tag v$PACKAGE_VERSION
 fi
 
 echo "v$PACKAGE_VERSION" > ../updated-gist/version-gist
