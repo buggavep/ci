@@ -2,7 +2,7 @@
 
 set -e
 
-echo $BUILD_ID
+echo $BUILD_PIPELINE_NAME
 
 export BRANCH=$(git branch | sed -n 2p)
  
