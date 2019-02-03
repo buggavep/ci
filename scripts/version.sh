@@ -4,6 +4,8 @@ set -e
 
 BRANCH=$(git branch | sed -n 2p)
 
+echo $BRANCH
+
 if [ ${BRANCH} != "master" ]; then
 
  echo $BRANCH
