@@ -21,7 +21,7 @@ if [ ${BRANCH} != "master" ]; then
 
   echo  "current branch is:" $BRANCH
   count = +1
-  PACKAGE_VERSION=echo ("${PACKAGE_VERSION}" "+" $count)
+  PACKAGE_VERSION=echo $("${PACKAGE_VERSION}" "+" $count)
   echo $PACKAGE_VERSION
 
 fi
