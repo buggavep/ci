@@ -2,7 +2,7 @@
 
 set -e
 
-git branch
+git branch | head -2
 
 BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 
