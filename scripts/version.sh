@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 set -e
-PACKAGE_VERSION=0
-export BRANCH=$(git branch | sed -n 2p)
+# PACKAGE_VERSION=0
+# export BRANCH=$(git branch | sed -n 2p)
  
 git clone ../version-gist ../updated-gist
 
-prev_version_gist=$(cat ../updated-gist/version-gist)
+# prev_version_gist=$(cat ../updated-gist/version-gist)
 
-prev_version=$(echo $prev_version_gist | sed "s/.*://")
+# prev_version=$(echo $prev_version_gist | sed "s/.*://")
 echo $prev_version
 rm -rf ../updated-gist/version-gist 
 
@@ -19,27 +19,27 @@ PACKAGE_VERSION=$(cat package.json \
 | sed 's/[",]//g' \
 | tr -d '[[:space:]]')
 
-git tag v$PACKAGE_VERSION
+# git tag v$PACKAGE_VERSION
 
-git push origin --tags
+# git push origin --tags
 
-if [ ${BRANCH} != "master" ]; then
-  echo  "current branch is:" $BRANCH 
-  echo  "previous version:" $prev_version_gist
-  if [[ $prev_version_gist == *"+"* ]]; then
-    value=$(echo $prev_version_gist | rev | cut -d+ -f1)
-  else
-    value=0  
-  fi 
-  value=$(expr $value + 1)
-  if [ $PACKAGE_VERSION == $prev_version ]; then
-    PACKAGE_VERSION="$PACKAGE_VERSION"+$value
-  else
-  	PACKAGE_VERSION="$PACKAGE_VERSION"
-  fi 
-fi
+# if [ ${BRANCH} != "master" ]; then
+#   echo  "current branch is:" $BRANCH 
+#   echo  "previous version:" $prev_version_gist
+#   if [[ $prev_version_gist == *"+"* ]]; then
+#     value=$(echo $prev_version_gist | rev | cut -d+ -f1)
+#   else
+#     value=0  
+#   fi 
+#   value=$(expr $value + 1)
+#   if [ $PACKAGE_VERSION == $prev_version ]; then
+#     PACKAGE_VERSION="$PACKAGE_VERSION"+$value
+#   else
+#   	PACKAGE_VERSION="$PACKAGE_VERSION"
+#   fi 
+# fi
 
-echo "Updated Version:" $PACKAGE_VERSION
+# echo "Updated Version:" $PACKAGE_VERSION
 
 echo "v$PACKAGE_VERSION" > ../updated-gist/version-gist
 
