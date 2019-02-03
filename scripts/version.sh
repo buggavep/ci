@@ -37,7 +37,7 @@ fi
 
 echo "Updated Version:" $PACKAGE_VERSION
 
-echo "$PACKAGE_VERSION" > ../updated-gist/version-gist
+echo "v$PACKAGE_VERSION" > ../updated-gist/version-gist
 
 ls -lrt
 
