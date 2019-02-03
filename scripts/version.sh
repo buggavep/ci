@@ -19,7 +19,7 @@ if [ ${BRANCH} != "master" ]; then
 
   echo  "current branch is:" $BRANCH
   #PACKAGE_VERSION=$((${PACKAGE_VERSION}+1))
-  value=$(echo $PACKAGE_VERSION | rev | cut -d: -f1
+  value=$(echo $PACKAGE_VERSION | rev | cut -d: -f1)
   echo $value
   PACKAGE_VERSION="v$PACKAGE_VERSION"+1
   echo $PACKAGE_VERSION
