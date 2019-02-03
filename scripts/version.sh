@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
-count=0
+
 export BRANCH=$(git branch | sed -n 2p)
  
 git clone ../version-gist ../updated-gist
@@ -18,8 +18,7 @@ PACKAGE_VERSION=$(cat package.json \
 if [ ${BRANCH} != "master" ]; then
 
   echo  "current branch is:" $BRANCH
-  count = count +1
-  PACKAGE_VERSION=echo $("${PACKAGE_VERSION}" "+" $count)
+  PACKAGE_VERSION=echo $("$expr ${PACKAGE_VERSION}" + 1)
   echo $PACKAGE_VERSION
 
 fi
