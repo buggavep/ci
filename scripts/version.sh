@@ -6,11 +6,11 @@ ls -lrt
 
 BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 
-if [ ${BRANCH} != "master" ]; then
+# if [ ${BRANCH} != "master" ]; then
 
-    echo $BRANCH
+echo $BRANCH
 
-fi
+# fi
 
 
 git clone ../version-gist ../updated-gist
