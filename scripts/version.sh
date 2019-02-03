@@ -3,6 +3,7 @@
 set -e
 
 export BRANCH=$(git branch | sed -n 2p)
+echo $BRANCH
 
 if [ ${BRANCH} != "master" ]; then
 
