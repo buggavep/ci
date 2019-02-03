@@ -19,6 +19,7 @@ if [ ${BRANCH} != "master" ]; then
 
   echo  "current branch is:" $BRANCH
   #PACKAGE_VERSION=$((${PACKAGE_VERSION}+1))
+  PACKAGE_VERSION=echo $($PACKAGE_VERSION | sed "s/.*://")
   PACKAGE_VERSION="v$PACKAGE_VERSION"+1
   echo $PACKAGE_VERSION
 
