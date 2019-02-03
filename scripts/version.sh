@@ -8,7 +8,7 @@ git clone ../version-gist ../updated-gist
 
 prev_version_gist=$(cat ../updated-gist/version-gist)
 
-prev_version=$(echo $prev_version_gist | rev | cut -d.)
+prev_version=$(echo $prev_version_gist | sed "s/.*://")
 echo $prev_version
 rm -rf ../updated-gist/version-gist 
 
