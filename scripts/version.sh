@@ -2,7 +2,7 @@
 
 set -e
 
-BRANCH=$(git branch | sed -n 2p)
+export BRANCH=$(git branch | sed -n 2p)
 
 if [ ${BRANCH} != "master" ]; then
 
