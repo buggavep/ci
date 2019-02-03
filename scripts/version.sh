@@ -4,7 +4,7 @@ set -e
 
 ls -lrt
 
-BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\2/p')
 
 # if [ ${BRANCH} != "master" ]; then
 
