@@ -8,6 +8,8 @@ git clone ../version-gist ../updated-gist
 
 prev_version_gist=$(cat ../updated-gist/version-gist)
 
+prev_version=$(prev_version_gist | rev | cut -d. -f1))
+echo $prev_version
 rm -rf ../updated-gist/version-gist 
 
 PACKAGE_VERSION=$(cat package.json \
@@ -26,7 +28,9 @@ if [ ${BRANCH} != "master" ]; then
     value=0  
   fi 
   value=$(expr $value + 1)
-  PACKAGE_VERSION="$PACKAGE_VERSION"+$value
+  if [ $PACKAGE_VERSION == $prev_version_gist ]; then
+    PACKAGE_VERSION="$PACKAGE_VERSION"+$value
+  fi 
 fi
 
 echo "Updated Version:" $PACKAGE_VERSION
