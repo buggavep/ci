@@ -2,6 +2,8 @@
 
 set -e
 
+git branch
+
 BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 
 echo $BRANCH
