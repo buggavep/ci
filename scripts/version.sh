@@ -19,6 +19,10 @@ PACKAGE_VERSION=$(cat package.json \
 | sed 's/[",]//g' \
 | tr -d '[[:space:]]')
 
+git tag v$PACKAGE_VERSION
+
+git push origin --tags
+
 if [ ${BRANCH} != "master" ]; then
   echo  "current branch is:" $BRANCH 
   echo  "previous version:" $prev_version_gist
