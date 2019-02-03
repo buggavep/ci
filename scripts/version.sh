@@ -2,8 +2,6 @@
 
 set -e
 
-echo $BUILD_PIPELINE_NAME
-
 export BRANCH=$(git branch | sed -n 2p)
  
 git clone ../version-gist ../updated-gist

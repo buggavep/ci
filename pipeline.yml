@@ -10,7 +10,7 @@ resources:
 - name: angular-app
   type: git
   source:
-    branch: master
+    branch: qa
     uri: https://github.com/buggavep/angular-app.git
     private_key: {{github-private-key}}
 
@@ -58,7 +58,7 @@ jobs:
     file: ci/concourse/version.yml
     input_mapping: {code-repo: angular-app, ci: ci, version-gist: version-gist}
   - put: version-gist
-    params: {repository: updated-gist}
+    params: {repository: updated-gist, BUID_ID: }
 
 - name: Build
   serial: true
