@@ -4,11 +4,9 @@ set -e
 
 BRANCH=$(git branch | sed -n 2p)
 
-echo $BRANCH
-
 if [ ${BRANCH} != "master" ]; then
 
- echo $BRANCH
+ echo  "current branch is:" $BRANCH
 
 fi
 
