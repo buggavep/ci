@@ -27,8 +27,9 @@ if [ ${BRANCH} != "master" ]; then
   fi 
   value=$(expr $value + 1)
   PACKAGE_VERSION="$PACKAGE_VERSION"+$value
-  echo $PACKAGE_VERSION
 fi
+
+echo "Updated Version:" $PACKAGE_VERSION
 
 echo "v$PACKAGE_VERSION" > ../updated-gist/version-gist
 
