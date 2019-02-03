@@ -6,7 +6,7 @@ ls -lrt
 
 BRANCH=$(git branch | sed -nr 's/\*\s(.*)/\1/p')
 
-if [ -z $BRANCH ] || [ $BRANCH != "master" ]; then
+if [ $BRANCH != "master" ]; then
     echo $BRANCH
 fi
 
@@ -21,10 +21,6 @@ PACKAGE_VERSION=$(cat package.json \
 | sed 's/[",]//g' \
 | tr -d '[[:space:]]')
 echo "current package version:${PACKAGE_VERSION}"
-
-ls -la
-
-
 
 echo "$PACKAGE_VERSION" > ../updated-gist/version-gist
 
