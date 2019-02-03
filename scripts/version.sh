@@ -3,13 +3,6 @@
 set -e
 
 ls -lrt
-echo "**********build number is"
-echo $BUILD_ID
-echo $BUILD_NAME
-echo $BUILD_PIPELINE_NAME
-echo $BUILD_JOB_NAME
-
-cd code-repo
 
 BRANCH=$(git branch | sed -nr 's/\*\s(.*)/\1/p')
 
