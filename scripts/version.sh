@@ -4,6 +4,14 @@ set -e
 
 ls -lrt
 
+cd code-repo
+
+BRANCH=$(git branch | sed -nr 's/\*\s(.*)/\1/p')
+
+if [ -z $BRANCH ] || [ $BRANCH != "master" ]; then
+    echo $BRANCH
+fi
+
 git clone ../version-gist ../updated-gist
 
 rm -rf ../updated-gist/version-gist 
@@ -17,6 +25,8 @@ PACKAGE_VERSION=$(cat package.json \
 echo "current package version:${PACKAGE_VERSION}"
 
 ls -la
+
+
 
 echo "$PACKAGE_VERSION" > ../updated-gist/version-gist
 

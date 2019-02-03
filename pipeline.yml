@@ -2,7 +2,7 @@ groups:
 - name: main
   jobs:
   - Version 
-  - Build-UnitTest
+  - Build
   - SonarScan
   - PCFDeploy
 
@@ -60,7 +60,7 @@ jobs:
   - put: version-gist
     params: {repository: updated-gist}
 
-- name: Build-UnitTest
+- name: Build
   serial: true
   public: true
   plan:
@@ -72,9 +72,6 @@ jobs:
   - task: Build App
     file: ci/concourse/build.yml
     input_mapping: {code-repo: angular-app, ci: ci, dist: dist, version-gist: version-gist}
-    params:
-      ARTIFACTORY_USERNAME: {{artifactory-username}}
-      ARTIFACTORY_PASSWORD: {{artifactory-password}}
 
 - name: SonarScan
   serial: true
