@@ -28,14 +28,16 @@ if [ ${BRANCH} != "master" ]; then
     value=0  
   fi 
   value=$(expr $value + 1)
-  if [ $PACKAGE_VERSION == $prev_version_gist ]; then
+  if [ $PACKAGE_VERSION == $prev_version ]; then
     PACKAGE_VERSION="$PACKAGE_VERSION"+$value
+  else
+  	PACKAGE_VERSION="$PACKAGE_VERSION"
   fi 
 fi
 
 echo "Updated Version:" $PACKAGE_VERSION
 
-echo "v$PACKAGE_VERSION" > ../updated-gist/version-gist
+echo "$PACKAGE_VERSION" > ../updated-gist/version-gist
 
 ls -lrt
 
