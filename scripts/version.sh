@@ -40,11 +40,11 @@ PACKAGE_VERSION=$(cat package.json \
 # fi
 
 # echo "Updated Version:" $PACKAGE_VERSION
-if [ $(git tag -l "v$PACKAGE_VERSION") ]; then
+if [ $(git tag -l "$PACKAGE_VERSION") ]; then
     echo yes
 else
     echo no
-    git tag v$PACKAGE_VERSION
+    git tag $PACKAGE_VERSION
 fi
 
 echo "v$PACKAGE_VERSION" > ../updated-gist/version-gist
