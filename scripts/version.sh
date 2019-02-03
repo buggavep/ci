@@ -2,18 +2,15 @@
 
 set -e
 
-# BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
-git branch
-
 BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
-# | awk '{print $2}')
-echo $BRANCH
-
-# if [ ${BRANCH} != "master" ]; then
 
 echo $BRANCH
 
-# fi
+if [ ${BRANCH} != "master" ]; then
+
+ echo $BRANCH
+
+fi
 
 
 git clone ../version-gist ../updated-gist
