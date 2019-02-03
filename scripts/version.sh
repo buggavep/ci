@@ -45,6 +45,9 @@ if [ $(git tag -l "$PACKAGE_VERSION") ]; then
 else
     echo no
     git tag $PACKAGE_VERSION
+    git config --global user.email "concourse@nobody.com"
+    git config --global user.name "concourse"
+    git push origin --tags
 fi
 
 echo "v$PACKAGE_VERSION" > ../updated-gist/version-gist
