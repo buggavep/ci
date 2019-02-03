@@ -5,7 +5,8 @@ set -e
 ls -lrt
 
 # BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
-BRANCH=$(git branch | sed '3d')
+BRANCH=$(git branch)
+
 # if [ ${BRANCH} != "master" ]; then
 
 echo $BRANCH
