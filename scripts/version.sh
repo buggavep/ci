@@ -19,6 +19,8 @@ PACKAGE_VERSION=$(cat package.json \
 | sed 's/[",]//g' \
 | tr -d '[[:space:]]')
 
+chmod 777 release.sh
+sh release.sh $PACKAGE_VERSION
 # git tag v$PACKAGE_VERSION
 
 # git push origin --tags
@@ -40,15 +42,15 @@ PACKAGE_VERSION=$(cat package.json \
 # fi
 
 # echo "Updated Version:" $PACKAGE_VERSION
-if [ $(git tag -l "$PACKAGE_VERSION") ]; then
-    echo yes
-else
-    echo no
-    git tag $PACKAGE_VERSION
-    git config --global user.email "concourse@nobody.com"
-    git config --global user.name "concourse"
-    git push origin --tags
-fi
+# if [ $(git tag -l "$PACKAGE_VERSION") ]; then
+#     echo yes
+# else
+#     echo no
+#     git tag $PACKAGE_VERSION
+#     git config --global user.email "concourse@nobody.com"
+#     git config --global user.name "concourse"
+#     git push origin --tags
+# fi
 
 echo "v$PACKAGE_VERSION" > ../updated-gist/version-gist
 
