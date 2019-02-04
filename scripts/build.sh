@@ -16,7 +16,7 @@ npm run test:report
 
 ls -lrt
 
-tar -czvf ../dist/${cur_version}/cibuild.tar.gz --exclude='./node_modules' --exclude='./.git' --exclude='./.tmp' .
+tar -czvf ../dist/cibuild.tar.gz --exclude='./node_modules' --exclude='./.git' --exclude='./.tmp' .
 
 ls -lrt ../dist
 
