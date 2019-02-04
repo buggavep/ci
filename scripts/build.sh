@@ -27,4 +27,4 @@ cd ../dist
 
 ls -lrt
 
-curl --upload-file cibuild.tar.gz -u ${nexus-username}:${nexus-password} -v http://localhost:8081/repository/demo-app/${cur_version}
+curl --upload-file cibuild.tar.gz -u ${nexus-username}:${nexus-password} -v ${nexus-host}/${cur_version}
