@@ -9,7 +9,7 @@ git clone ../version-gist ../updated-gist
 # prev_version_gist=$(cat ../updated-gist/version-gist)
 
 # prev_version=$(echo $prev_version_gist | sed "s/.*://")
-echo $prev_version
+# echo $prev_version
 rm -rf ../updated-gist/version-gist 
 
 PACKAGE_VERSION=$(cat package.json \
@@ -19,8 +19,8 @@ PACKAGE_VERSION=$(cat package.json \
 | sed 's/[",]//g' \
 | tr -d '[[:space:]]')
 
-chmod 777 ../ci/scripts/release.sh
-../ci/scripts/release.sh $PACKAGE_VERSION
+# chmod 777 ../ci/scripts/release.sh
+# ../ci/scripts/release.sh $PACKAGE_VERSION
 
 # git tag v$PACKAGE_VERSION
 
