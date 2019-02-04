@@ -2,7 +2,7 @@
 
 set -e -x
 
-../ls -lrt
+ls -lrt ../../
 
 cur_version=$(cat ../../version-gist)
 
