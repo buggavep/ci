@@ -4,6 +4,8 @@ set -e -x
 
 ls -lrt
 
+cur_version=$(cat ../version-gist)
+
 npm install
 
 # Runnnig Unit Tests
@@ -14,7 +16,7 @@ npm run test:report
 
 ls -lrt
 
-tar -czvf ../dist/cibuild.tar.gz --exclude='./node_modules' --exclude='./.git' --exclude='./.tmp' .
+tar -czvf ../dist/${cur_version}/cibuild.tar.gz --exclude='./node_modules' --exclude='./.git' --exclude='./.tmp' .
 
 ls -lrt ../dist
 
