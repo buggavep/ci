@@ -27,4 +27,4 @@ cd ../dist
 
 ls -lrt
 
-curl --upload-file cibuild.tar.gz -u ${nexus-username}:${nexus-password} -v ${nexus-host}/${cur_version}
+curl --upload-file cibuild.tar.gz -u ${NEXUS-USERNAME}:${NEXUS-PASSWORD} -v ${NEXUS-HOST}/${cur_version}
