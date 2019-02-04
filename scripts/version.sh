@@ -22,9 +22,9 @@ PACKAGE_VERSION=$(cat package.json \
 # chmod 777 ../ci/scripts/release.sh
 # ../ci/scripts/release.sh $PACKAGE_VERSION
 
-git tag v$PACKAGE_VERSION
+# git tag v$PACKAGE_VERSION
 
-git push origin --tags
+#git push origin --tags
 
 # if [ ${BRANCH} != "master" ]; then
 #   echo  "current branch is:" $BRANCH 
