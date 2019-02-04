@@ -4,6 +4,7 @@ set -e -x
 
 ls -lrt
 
+#To create artifact with version
 cur_version=$(cat ../version-gist/version-gist)
 
 npm install
@@ -26,6 +27,4 @@ cd ../dist
 
 ls -lrt
 
-cat ../version-gist
-
-curl --upload-file *-${VERSION} -u admin:admin123 -v http://localhost:8081/repository/demo-app/
+curl --upload-file cibuild.tar.gz -u ${nexus-username}:${nexus-password} -v http://localhost:8081/repository/demo-app/${cur_version}
