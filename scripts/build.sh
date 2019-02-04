@@ -6,9 +6,8 @@ ls -lrt
 
 cd ..
 ls -lrt
-cd ..
-ls -lrt
-cur_version=$(cat ../../version-gist)
+
+cur_version=$(cat version-gist/version-gist)
 
 npm install
 
