@@ -4,10 +4,7 @@ set -e -x
 
 ls -lrt
 
-cd ..
-ls -lrt
-
-cur_version=$(cat version-gist/version-gist)
+cur_version=$(cat ../version-gist/version-gist)
 
 npm install
 
