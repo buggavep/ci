@@ -28,4 +28,5 @@ cd ../dist
 chmod 777 .
 ls -lrt
 
-curl --upload-file cibuild.tar.gz -u admin:admin123 -v http://172.17.17.104:8081/repository/demo-app/${cur_version}
+npm publish --registry http://localhost:8081/repository/npm-internal/cibuild.tar.gz
+# curl --upload-file cibuild.tar.gz -u admin:admin123 -v http://172.17.17.104:8081/repository/demo-app/${cur_version}
