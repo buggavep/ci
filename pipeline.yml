@@ -74,7 +74,7 @@ jobs:
     input_mapping: {code-repo: angular-app, ci: ci, dist: dist, version-gist: version-gist}
     params:
       NEXUS-USERNAME: {{nexus-username}}
-      NEXUS-PROPERTIES: {{nexus-password}}
+      NEXUS-PASSWORD: {{nexus-password}}
       NEXUS-HOST: {{nexus-host}}
 
 - name: SonarScan
