@@ -20,7 +20,7 @@ PACKAGE_VERSION=$(cat package.json \
 | tr -d '[[:space:]]')
 
 chmod 777 release.sh
-sh release.sh $PACKAGE_VERSION
+../ci/scripts/release.sh $PACKAGE_VERSION
 # git tag v$PACKAGE_VERSION
 
 # git push origin --tags
