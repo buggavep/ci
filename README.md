@@ -38,8 +38,9 @@
            -----END RSA PRIVATE KEY-----
            
 # Integrations
-1. GitHub.
-2. Nexus Artifactory.
+1. GitHub.   
+2. Docker.
+3. Nexus Artifactory.
    Configurations:
      1. Download Nexus from the following link: https://help.sonatype.com/repomanager3/download/download-archives---repository-manager-3
      2. Unzip the artifact.
@@ -48,7 +49,7 @@
              application-host=0.0.0.0
      4. RUN ./PATH/TO/BIN/nexus start.
      
-3. SonarQube Scanner.
+4. SonarQube Scanner.
    Configurations:
      1. Download Sonarqube from the following link: https://www.sonarqube.org/downloads/
      2. Unzip the artifact
@@ -57,9 +58,7 @@
              sonar.web.port=
      4. RUN ./PATH/TO/BIN/sonar start
      
-4. Pivotal Cloud Foundary.
+5. Pivotal Cloud Foundary.
      1. Login to: https://run.pivotal.io/
      2. Create Account.
      3. Create ORG and SPACE.
-     
-5. Docker.
