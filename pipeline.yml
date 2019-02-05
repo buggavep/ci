@@ -106,7 +106,8 @@ jobs:
       NEXUS_USERNAME: {{nexus-username}}
       NEXUS_PASSWORD: {{nexus-password}}
       NEXUS_HOST: {{nexus-host}}
-  - put: PCFdeploy
-    params:
-      manifest: /tmp/build/c81e6032/code-repo/manifest.yml
-      path: /tmp/build/c81e6032/code-repo
+      CF_API_ENDPOINT: {{cf-api-endpoint}}
+      CF_USERNAME: {{cf-username}}
+      CF_PASSWORD: {{cf-password}}
+      CF_ORG: {{cf-org}}
+      CF_SPACE: {{cf-space}}
