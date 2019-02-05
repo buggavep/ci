@@ -101,4 +101,4 @@ jobs:
       CF_PASSWORD: {{cf-password}}
       CF_ORG: {{cf-org}}
       CF_SPACE: {{cf-space}}
-      APP_NAME: {{demo-pipeline}}
+      APP_NAME: {{app-name}}
