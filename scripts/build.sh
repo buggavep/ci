@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -o pipefail
+
 set -e -x
 
 ls -lrt
