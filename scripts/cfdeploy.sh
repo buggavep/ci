@@ -15,4 +15,5 @@ chmod -R 777 *
 
 # npm install
 
-ls -lrt
+ls -lart
+pwd
