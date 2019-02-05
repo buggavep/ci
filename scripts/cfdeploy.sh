@@ -10,4 +10,4 @@ curl -K -L "${NEXUS_HOST}/repository/demo-files/${cur_version}/cibuild.tar.gz" |
 
 cf login -a ${CF_API_ENDPOINT} -u ${CF_USERNAME} -p ${CF_PASSWORD} -o ${CF_ORG} -s ${CF_SPACE} >/dev/null 2>&1
 
-cf push
+cf push ${APP_NAME}
