@@ -108,5 +108,5 @@ jobs:
       NEXUS_HOST: {{nexus-host}}
   - put: PCFdeploy
     params:
-      manifest: angular-app/manifest.yml
-      path: angular-app
+      manifest: ./manifest.yml
+      path: code-repo
