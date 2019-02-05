@@ -1,3 +1,6 @@
+# This Project is created to help you with the basic setup of Concourse Pipelines, and also intergate with code quality tools 
+and Cloud Tools Like PCF. 
+
 # Setup Concourse from the following link:
         git clone https://github.com/buggavep/ci.git
         
