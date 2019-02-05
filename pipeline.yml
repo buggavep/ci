@@ -108,5 +108,5 @@ jobs:
       NEXUS_HOST: {{nexus-host}}
   - put: PCFdeploy
     params:
-      manifest: ./manifest.yml
+      manifest: code-repo/manifest.yml
       path: code-repo
