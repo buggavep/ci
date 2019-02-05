@@ -8,6 +8,6 @@ cur_version=$(cat ../version-gist/version-gist)
 
 curl -K -L "${NEXUS_HOST}/repository/demo-files/${cur_version}/cibuild.tar.gz" | tar -xvzf -
 
-cf login -a ${CF_API_ENDPOINT} -u ${CF_USERNAME} -p {CF_PASSWORD} -o ${ORG} -s {SPACE}
+cf login -a ${CF_API_ENDPOINT} -u ${CF_USERNAME} -p ${CF_PASSWORD} -o ${ORG} -s ${SPACE}
 
 cf push
