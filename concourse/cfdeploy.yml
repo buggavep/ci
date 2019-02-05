@@ -2,15 +2,14 @@ platform: linux
 image_resource:
   type: docker-image
   source:
-    repository: tutum/curl
+    repository: governmentpaas/cf-cli
     tag: "latest"
 
 inputs: 
  - name: code-repo
  - name: ci
- - name: dist
- # - name: artifactory
- 
+ - name: version-gist
+
 run: 
  path: bash
  args:

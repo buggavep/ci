@@ -1,5 +1,10 @@
 # KICK START You CICD Setup.
+
 # This Project is created to help you with the basic setup of Concourse Pipelines. How to configure Jobs and What are the necessary jobs that can be intergated to Continously deploy your product on to pcf.
+
+# CI-CD Basic Architecture
+
+ ![CI-CD Basic Architecture](/docs/Basic-Architecture.png)
 
 # Setup Concourse from the following link:
         git clone https://github.com/buggavep/ci.git
@@ -23,7 +28,6 @@
           RUN fly -t <target> set-pipeline -c pipeline.yml -p <pipeline-name> -l <secretes-file>
 
 # Sample Secrets-file Format
-
           app-name: {{value}}
           cf-api-endpoint: {{value}}
           cf-username: {{value}}

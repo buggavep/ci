@@ -2,16 +2,16 @@
 
 set -e -x
 
-ls -lrt
+cur_version=$(cat ../version-gist/version-gist)
 
-cd ../dist
+BLUE=${APP_NAME}
+GREEN=${APP_NAME}-bg
+# curl -O ${NEXUS_HOST}/repository/demo-files/${cur_version}/cibuild.tar.gz
 
-ls -lrt
+curl -K -L "${NEXUS_HOST}/repository/demo-files/${cur_version}/cibuild.tar.gz" | tar -xvzf -
 
-export TERM=dumb
+cf login -a ${CF_API_ENDPOINT} -u ${CF_USERNAME} -p ${CF_PASSWORD} -o ${CF_ORG} -s ${CF_SPACE} >/dev/null 2>&1
+ 
+cf push ${GREEN}
 
-chmod -R 777 *
-
-# npm install
-
-ls -lrt
+cf map-route ${BLUE} -n ${GREEN}

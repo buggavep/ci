@@ -1,8 +1,8 @@
 groups:
-- name: main
+- name: Pivotal Cloud Foundary
   jobs:
   - Version 
-  - Build-UnitTest
+  - Build
   - SonarScan
   - PCFDeploy
 
@@ -10,14 +10,14 @@ resources:
 - name: angular-app
   type: git
   source:
-    branch: master
+    branch: qa
     uri: https://github.com/buggavep/angular-app.git
     private_key: {{github-private-key}}
 
 - name: ci
   type: git
   source:
-    branch: master
+    branch: qa
     uri: https://github.com/buggavep/ci.git
     private_key: {{github-private-key}}
 
@@ -28,31 +28,7 @@ resources:
     uri: git@gist.github.com:8138f5263ca1b8952264e4f13fc3a1eb.git
     private_key: {{github-private-key}}
 
-- name: PCFdeploy
-  type: cf
-  source:
-    api: {{cf-endpoint}}
-    username: {{cf-username}}
-    password: {{cf-password}}
-    organization: {{cf-organization}}
-    space: {{cf-space}}
-    skip_cert_check: true
-
-# - name: artifactory-snapshot
-#   type: artifactory
-#   source:
-#     endpoint: {{artifactory-endpoint}}
-#     repository: {{artifactory-repo}}
-#     regex: {{artifactory-regex}}
-#     username: {{artifactory-username}}
-#     password: {{artifactory-password}}
-#     skip_ssl_verification: true
-
 resource_types:
-- name: artifactory
-  type: docker-image
-  source:
-    repository: pivotalservices/artifactory-resource
 
 - name: sonar-runner
   type: docker-image
@@ -74,7 +50,7 @@ jobs:
   - put: version-gist
     params: {repository: updated-gist}
 
-- name: Build-UnitTest
+- name: Build
   serial: true
   public: true
   plan:
@@ -83,14 +59,13 @@ jobs:
     trigger: true  
   - get: version-gist
   - get: ci 
-  # - get: artifactory
-  #   resource: artifactory-snapshot
   - task: Build App
     file: ci/concourse/build.yml
     input_mapping: {code-repo: angular-app, ci: ci, dist: dist, version-gist: version-gist}
     params:
-      ARTIFACTORY_USERNAME: {{artifactory-username}}
-      ARTIFACTORY_PASSWORD: {{artifactory-password}}
+      NEXUS_USERNAME: {{nexus-username}}
+      NEXUS_PASSWORD: {{nexus-password}}
+      NEXUS_HOST: {{nexus-host}}
 
 - name: SonarScan
   serial: true
@@ -103,6 +78,9 @@ jobs:
   - task: Sonar Scan Task
     file: ci/concourse/sonar-scan.yml
     input_mapping: {code-repo: angular-app, ci: ci, dist: dist, version-gist: version-gist}
+    params:
+     SONAR_HOST: {{sonar-host}}
+     SONAR_TOKEN: {{sonar-token}}
 
 - name: PCFDeploy
   serial: true
@@ -111,15 +89,19 @@ jobs:
   - get: angular-app
     passed: [SonarScan]
     trigger: true  
+  - get: version-gist
   # - get: artifactory-snapshot
   - get: ci 
-  - task: Build App
-    file: ci/concourse/build.yml
-    input_mapping: {code-repo: angular-app, ci: ci, dist: dist, version-gist: version-gist}
   - task: PCF Deploy Task
     file: ci/concourse/cfdeploy.yml
-    input_mapping: {code-repo: angular-app, ci: ci, dist: dist, version-gist: version-gist}
-  - put: PCFdeploy
+    input_mapping: {code-repo: angular-app, ci: ci, version-gist: version-gist}
     params:
-      manifest: angular-app/manifest.yml
-      path: angular-app
+      NEXUS_USERNAME: {{nexus-username}}
+      NEXUS_PASSWORD: {{nexus-password}}
+      NEXUS_HOST: {{nexus-host}}
+      CF_API_ENDPOINT: {{cf-api-endpoint}}
+      CF_USERNAME: {{cf-username}}
+      CF_PASSWORD: {{cf-password}}
+      CF_ORG: {{cf-org}}
+      CF_SPACE: {{cf-space}}
+      APP_NAME: {{app-name}}
