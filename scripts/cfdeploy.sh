@@ -8,6 +8,7 @@ cur_version=$(cat ../version-gist/version-gist)
 
 curl -K -L "${NEXUS_HOST}/repository/demo-files/${cur_version}/cibuild.tar.gz" | tar -xvzf -
 
+cf login -a 
 
 export TERM=dumb
 
