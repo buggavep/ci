@@ -2,7 +2,9 @@
 
 # This Project is created to help you with the basic setup of Concourse Pipelines. How to configure Jobs and What are the necessary jobs that can be intergated to Continously deploy your product on to pcf.
 
- ![CICD Basic Architecture](/docs/Basic-Architecture.png)
+# CI-CD Basic Architecture
+
+ ![CI-CD Basic Architecture](/docs/Basic-Architecture.png)
 
 # Setup Concourse from the following link:
         git clone https://github.com/buggavep/ci.git
