@@ -73,9 +73,9 @@ jobs:
     file: ci/concourse/build.yml
     input_mapping: {code-repo: angular-app, ci: ci, dist: dist, version-gist: version-gist}
     params:
-      NEXUS-USERNAME: {{nexus-username}}
-      NEXUS-PASSWORD: {{nexus-password}}
-      NEXUS-HOST: {{nexus-host}}
+      NEXUS_USERNAME: {{nexus-username}}
+      NEXUS_PASSWORD: {{nexus-password}}
+      NEXUS_HOST: {{nexus-host}}
 
 - name: SonarScan
   serial: true
