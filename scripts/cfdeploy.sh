@@ -14,8 +14,4 @@ cf login -a ${CF_API_ENDPOINT} -u ${CF_USERNAME} -p ${CF_PASSWORD} -o ${CF_ORG} 
  
 cf push ${GREEN}
 
-cf map-route ${BLUE}
-
-cf unmap-route ${GREEN}
-
-cf restage
+cf map-route ${BLUE} -n ${GREEN}
