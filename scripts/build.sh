@@ -28,4 +28,6 @@ cd ../dist
 chmod 744 cibuild.tar.gz
 ls -lart
 
-curl --silent  -v --upload-file cibuild.tar.gz -u ${NEXUS_USERNAME}:${NEXUS_PASSWORD} ${NEXUS_HOST}/repository/demo-files/${cur_version}/cibuild.tar.gz > /dev/null 2>&1
+# curl --silent  -v --upload-file cibuild.tar.gz -u ${NEXUS_USERNAME}:${NEXUS_PASSWORD} ${NEXUS_HOST}/repository/demo-files/${cur_version}/cibuild.tar.gz > /dev/null 2>&1
+
+curl --silent  -v --upload-file cibuild.tar.gz setapikey 2dbc26c9-6c83-3887-9b04-3d98e90159b1 ${NEXUS_HOST}/repository/demo-files/${cur_version}/cibuild.tar.gz > /dev/null 2>&1
