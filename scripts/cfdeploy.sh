@@ -2,12 +2,13 @@
 
 set -e -x
 
-ls -lrt
 cur_version=$(cat ../version-gist/version-gist)
 
-curl -O ${NEXUS_HOST}/repository/demo-files/${cur_version}/cibuild.tar.gz
+# curl -O ${NEXUS_HOST}/repository/demo-files/${cur_version}/cibuild.tar.gz
 
-ls -lrt
+curl -K -L ${NEXUS_HOST}/repository/demo-files/${cur_version}/cibuild.tar.gz | tar -xvzf -
+
+ls -lart
 
 export TERM=dumb
 
