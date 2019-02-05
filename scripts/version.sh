@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
+
 # PACKAGE_VERSION=0
 # export BRANCH=$(git branch | sed -n 2p)
  

@@ -28,7 +28,6 @@
           RUN fly -t <target> set-pipeline -c pipeline.yml -p <pipeline-name> -l <secretes-file>
 
 # Sample Secrets-file Format
-
           app-name: {{value}}
           cf-api-endpoint: {{value}}
           cf-username: {{value}}
@@ -70,4 +69,3 @@
      1. Login to: https://run.pivotal.io/
      2. Create Account.
      3. Create ORG and SPACE.
-
