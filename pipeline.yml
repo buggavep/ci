@@ -96,6 +96,7 @@ jobs:
   - get: angular-app
     passed: [SonarScan]
     trigger: true  
+  - get: version-gist
   # - get: artifactory-snapshot
   - get: ci 
   - task: Build App
