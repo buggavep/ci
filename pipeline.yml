@@ -101,7 +101,7 @@ jobs:
   - get: ci 
   - task: PCF Deploy Task
     file: ci/concourse/cfdeploy.yml
-    input_mapping: {code-repo: angular-app, ci: ci, dist: dist, version-gist: version-gist}
+    input_mapping: {code-repo: angular-app, ci: ci, version-gist: version-gist}
   - put: PCFdeploy
     params:
       manifest: angular-app/manifest.yml
