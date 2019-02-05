@@ -8,7 +8,7 @@ cur_version=$(cat ../version-gist/version-gist)
 
 curl -K -L "${NEXUS_HOST}/repository/demo-files/${cur_version}/cibuild.tar.gz" | tar -xvzf -
 
-ls -lart
+apt-get install cf-cli
 
 export TERM=dumb
 
