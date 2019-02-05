@@ -4,7 +4,7 @@ set -e -x
 
 ls -lrt
 
-wget -O -u ${NEXUS_USERNAME}:${NEXUS_PASSWORD} ${NEXUS_HOST}/repository/demo-files/${cur_version}/*
+curl -O -u ${NEXUS_USERNAME}:${NEXUS_PASSWORD} ${NEXUS_HOST}/repository/demo-files/${cur_version}/*
 
 ls -lrt
 
