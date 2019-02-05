@@ -102,10 +102,11 @@ jobs:
   - task: PCF Deploy Task
     file: ci/concourse/cfdeploy.yml
     input_mapping: {code-repo: angular-app, ci: ci, version-gist: version-gist}
-  - put: PCFdeploy
     params:
       NEXUS_USERNAME: {{nexus-username}}
       NEXUS_PASSWORD: {{nexus-password}}
       NEXUS_HOST: {{nexus-host}}
+  - put: PCFdeploy
+    params:
       manifest: angular-app/manifest.yml
       path: angular-app
