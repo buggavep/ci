@@ -1,4 +1,4 @@
-# This Project is created to help you with the basic setup of Concourse Pipelines. How to configure Jobs and What are the necessary jobs that can be intergated to Continous deploy your product on to pcf.
+# This Project is created to help you with the basic setup of Concourse Pipelines. How to configure Jobs and What are the necessary jobs that can be intergated to Continously deploy your product on to pcf.
 
 # Setup Concourse from the following link:
         git clone https://github.com/buggavep/ci.git
