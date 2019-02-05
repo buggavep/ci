@@ -28,16 +28,6 @@ resources:
     uri: git@gist.github.com:8138f5263ca1b8952264e4f13fc3a1eb.git
     private_key: {{github-private-key}}
 
-- name: PCFdeploy
-  type: cf
-  source:
-    api: {{cf-endpoint}}
-    username: {{cf-username}}
-    password: {{cf-password}}
-    organization: {{cf-organization}}
-    space: {{cf-space}}
-    skip_cert_check: true
-
 resource_types:
 
 - name: sonar-runner
