@@ -78,6 +78,9 @@ jobs:
   - task: Sonar Scan Task
     file: ci/concourse/sonar-scan.yml
     input_mapping: {code-repo: angular-app, ci: ci, dist: dist, version-gist: version-gist}
+    params:
+     SONAR_HOST: {{sonar-host}}
+     SONAR_TOKEN: {{sonar-token}}
 
 - name: PCFDeploy
   serial: true
