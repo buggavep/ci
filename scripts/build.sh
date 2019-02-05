@@ -30,4 +30,4 @@ ls -lrt
 
 # npm publish -u admin:admin123  --registry http://localhost:8081/repository/npm-internal/cibuild.tar.gz
 # curl -V --upload-file cibuild.tar.gz -u admin:admin123 -v http://172.17.17.104:8081/repository/demo-app/${cur_version}
-curl -v --upload-file cibuild.tar.gz -u admin:admin123 -v http://192.168.1.236:8081/repository/demo-app
+curl -v --upload-file cibuild.tar.gz -u admin:admin123 -v http://192.168.1.236:8081/repository/demo-app/
