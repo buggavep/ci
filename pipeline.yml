@@ -1,5 +1,5 @@
 groups:
-- name: main
+- name: Pivotal Cloud Foundary
   jobs:
   - Version 
   - Build
