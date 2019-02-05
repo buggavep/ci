@@ -8,9 +8,7 @@ image_resource:
 inputs: 
  - name: code-repo
  - name: ci
- - name: dist
- # - name: artifactory
- 
+
 run: 
  path: bash
  args:
